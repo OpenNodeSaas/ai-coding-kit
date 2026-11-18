@@ -29,19 +29,7 @@ powershell -c "irm https://releases.herdr.dev/app/install.ps1 | iex"
 2. 选择 `~/.ssh/config` 里的 `vps1`、`vps2`、`vps3` 依次添加。
 3. 在 GUI 内为每台 VPS 新建 **Space** 与标签页，启动 `claude`、`codex` 或 `cxds`。
 4. 侧边栏会按 **`Blocked（等你确认）→ Done（刚完成）→ Working（运行中）→ Idle`** 自动聚合所有 VPS 上的 Agent 状态；关闭电脑或休眠后，VPS 上的任务依然继续执行。
-GUIDE_EOF
 
-chmod +x "$PROJECT/install.sh"
-
-# 打包 zip
-if command -v zip >/dev/null 2>&1; then
-  zip -r "${PROJECT}.zip" "$PROJECT" >/dev/null
-  echo "✅ 已生成 GitHub 项目 ./$PROJECT 和压缩包 ./${PROJECT}.zip"
-else
-  tar -czf "${PROJECT}.tar.gz" "$PROJECT"
-  echo "✅ 未找到 zip，已生成 ./$PROJECT 和 ./${PROJECT}.tar.gz"
-fi
-```
 
 ### 在 3~4 台 VPS 上的部署步骤
 把生成的 `ai-coding-kit` 推到你的私有 GitHub 仓库（或把 `ai-coding-kit.zip` 传到 VPS 解压），在每台 VPS 上只需跑 3 行：
