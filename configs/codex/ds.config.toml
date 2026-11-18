@@ -1,0 +1,3 @@
+model_provider = "deepseek"
+model = "deepseek-flash"
+model_reasoning_effort = "medium"
